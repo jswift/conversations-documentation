@@ -6,7 +6,5 @@ phases:
       - gem install jekyll
   build:
     commands:
-      - echo "******** Building Jekyll site ********"
-      - jekyll build
-      - echo "******** Uploading to S3 ********"
+      - bundle exec jekyll build
       - aws s3 sync _site/ s3://test-documentation.conversations.actionable.co
