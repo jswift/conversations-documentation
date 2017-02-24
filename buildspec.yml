@@ -3,8 +3,10 @@ version: 0.1
 phases:
   install:
     commands:
+      - gem update --system
       - gem install jekyll
   build:
     commands:
+      - bundle update
       - bundle exec jekyll build
       - aws s3 sync _site/ s3://test-documentation.conversations.actionable.co
