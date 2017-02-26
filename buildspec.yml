@@ -2,13 +2,16 @@ version: 0.1
 
 environment_variables:
   plaintext:
-    BUILD_TARGET_SITE=test-documentation.conversations.actionable.co
+    BUILD_TARGET_SITE: "test-documentation.conversations.actionable.co"
 
 phases:
   install:
     commands:
       - gem update --system
       - gem install jekyll
+  pre_build:
+    commands:
+      - printenv
   build:
     commands:
       - bundle update
