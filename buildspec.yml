@@ -1,5 +1,9 @@
 version: 0.1
-   
+
+environment_variables:
+  plaintext:
+    BUILD_TARGET_SITE=test-documentation.conversations.actionable.co
+
 phases:
   install:
     commands:
@@ -9,4 +13,4 @@ phases:
     commands:
       - bundle update
       - bundle exec jekyll build
-      - aws s3 sync _site/ s3://test-documentation.conversations.actionable.co
+      - aws s3 sync _site/ s3://$BUILD_TARGET_SITE
